@@ -9,7 +9,6 @@
 /dist
 /lib
 /lib
-/package-lock.json
 /tmp
 /tmp
 /yarn.lock
