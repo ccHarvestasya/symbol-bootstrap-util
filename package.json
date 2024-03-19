@@ -1,7 +1,7 @@
 {
   "name": "symbol-bootstrap-util",
-  "version": "0.0.0",
-  "description": "oclif example Hello World CLI (ESM)",
+  "version": "1.0.0",
+  "description": "utilities for symbol-bootstrap",
   "keywords": [
     "oclif"
   ],
@@ -9,7 +9,7 @@
   "bugs": "https://github.com/ccHarvestasya/symbol-bootstrap-util/issues",
   "repository": "ccHarvestasya/symbol-bootstrap-util",
   "license": "MIT",
-  "author": "ccHarvestasya @ccHarvestasya",
+  "author": "Mimosa Harvestasya @MimosaHrvsty",
   "type": "module",
   "exports": "./lib/index.js",
   "main": "",
@@ -48,9 +48,18 @@
     }
   },
   "dependencies": {
+    "@inquirer/password": "^2.1.0",
     "@oclif/core": "^3",
     "@oclif/plugin-help": "^6",
-    "@oclif/plugin-plugins": "^4"
+    "@oclif/plugin-plugins": "^4",
+    "@types/crypto-js411": "npm:@types/crypto-js@^4.1.1",
+    "@types/crypto-js420": "npm:@types/crypto-js@^4.2.0",
+    "@types/inquirer": "^9.0.7",
+    "@types/js-yaml": "^4.0.9",
+    "crypto-js411": "npm:crypto-js@^4.1.1",
+    "crypto-js420": "npm:crypto-js@^4.2.0",
+    "inquirer": "^9.2.16",
+    "js-yaml": "^4.1.0"
   },
   "devDependencies": {
     "@oclif/prettier-config": "^0.2.1",
