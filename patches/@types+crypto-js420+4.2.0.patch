@@ -1,0 +1,26 @@
+diff --git a/node_modules/@types/crypto-js420/index.d.ts b/node_modules/@types/crypto-js420/index.d.ts
+index 2787937..bc8d8ab 100644
+--- a/node_modules/@types/crypto-js420/index.d.ts
++++ b/node_modules/@types/crypto-js420/index.d.ts
+@@ -1,8 +1,8 @@
+-export = CryptoJS;
++export = CryptoJS42x;
+ 
+-type WordArray = CryptoJS.lib.WordArray;
+-type CipherParams = CryptoJS.lib.CipherParams;
+-type X64Word = CryptoJS.x64.Word;
++type WordArray = CryptoJS42x.lib.WordArray;
++type CipherParams = CryptoJS42x.lib.CipherParams;
++type X64Word = CryptoJS42x.x64.Word;
+ 
+ /**
+  * Encoding strategy.
+@@ -507,7 +507,7 @@ interface KDFOption {
+ }
+ 
+ declare global {
+-    namespace CryptoJS {
++    namespace CryptoJS42x {
+         /**
+          * Library namespace.
+          */

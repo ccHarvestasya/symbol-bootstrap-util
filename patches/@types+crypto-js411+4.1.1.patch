@@ -1,0 +1,29 @@
+diff --git a/node_modules/@types/crypto-js411/index.d.ts b/node_modules/@types/crypto-js411/index.d.ts
+index de0d239..34c0f46 100644
+--- a/node_modules/@types/crypto-js411/index.d.ts
++++ b/node_modules/@types/crypto-js411/index.d.ts
+@@ -6,11 +6,11 @@
+ //                 Doma <https://github.com/SevenOutman>
+ // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+ 
+-export = CryptoJS;
++export = CryptoJS41x;
+ 
+-type WordArray = CryptoJS.lib.WordArray;
+-type CipherParams = CryptoJS.lib.CipherParams;
+-type X64Word = CryptoJS.x64.Word;
++type WordArray = CryptoJS41x.lib.WordArray;
++type CipherParams = CryptoJS41x.lib.CipherParams;
++type X64Word = CryptoJS41x.x64.Word;
+ 
+ /**
+  * Encoding strategy.
+@@ -515,7 +515,7 @@ interface KDFOption {
+ }
+ 
+ declare global {
+-    namespace CryptoJS {
++    namespace CryptoJS41x {
+         /**
+          * Library namespace.
+          */

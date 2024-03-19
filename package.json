@@ -30,7 +30,8 @@
     "prepare": "npm run build",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "posttest": "npm run lint",
-    "version": "oclif readme && git add README.md"
+    "version": "oclif readme && git add README.md",
+    "postinstall": "patch-package"
   },
   "oclif": {
     "bin": "symbol-bootstrap-util",
@@ -97,6 +98,7 @@
     "eslint-config-prettier": "^9.1.0",
     "mocha": "^10",
     "oclif": "^4.5.4",
+    "patch-package": "^8.0.0",
     "shx": "^0.3.4",
     "ts-node": "^10.9.2",
     "typescript": "^5"
