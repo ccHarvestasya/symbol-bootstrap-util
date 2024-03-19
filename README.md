@@ -5,7 +5,6 @@ utilities for symbol-bootstrap
 ## Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g symbol-bootstrap-util
 $ symbol-bootstrap-util COMMAND
@@ -17,7 +16,6 @@ USAGE
   $ symbol-bootstrap-util COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 ```sh-session
@@ -35,16 +33,15 @@ USAGE
 ## Commands
 
 <!-- commands -->
-
-- [`symbol-bootstrap-util conv4142`](#symbol-bootstrap-util-conv4142)
-- [`symbol-bootstrap-util conv4241`](#symbol-bootstrap-util-conv4241)
-- [`symbol-bootstrap-util dec41`](#symbol-bootstrap-util-dec41)
-- [`symbol-bootstrap-util dec42`](#symbol-bootstrap-util-dec42)
-- [`symbol-bootstrap-util enc41`](#symbol-bootstrap-util-enc41)
-- [`symbol-bootstrap-util enc42`](#symbol-bootstrap-util-enc42)
-- [`symbol-bootstrap-util help [COMMAND]`](#symbol-bootstrap-util-help-command)
-- [`symbol-bootstrap-util passwd41`](#symbol-bootstrap-util-passwd41)
-- [`symbol-bootstrap-util passwd42`](#symbol-bootstrap-util-passwd42)
+* [`symbol-bootstrap-util conv4142`](#symbol-bootstrap-util-conv4142)
+* [`symbol-bootstrap-util conv4241`](#symbol-bootstrap-util-conv4241)
+* [`symbol-bootstrap-util dec41`](#symbol-bootstrap-util-dec41)
+* [`symbol-bootstrap-util dec42`](#symbol-bootstrap-util-dec42)
+* [`symbol-bootstrap-util enc41`](#symbol-bootstrap-util-enc41)
+* [`symbol-bootstrap-util enc42`](#symbol-bootstrap-util-enc42)
+* [`symbol-bootstrap-util help [COMMAND]`](#symbol-bootstrap-util-help-command)
+* [`symbol-bootstrap-util passwd41`](#symbol-bootstrap-util-passwd41)
+* [`symbol-bootstrap-util passwd42`](#symbol-bootstrap-util-passwd42)
 
 ## `symbol-bootstrap-util conv4142`
 
@@ -233,5 +230,4 @@ EXAMPLES
 ```
 
 _See code: [src/commands/passwd42/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.0/src/commands/passwd42/index.ts)_
-
 <!-- commandsstop -->

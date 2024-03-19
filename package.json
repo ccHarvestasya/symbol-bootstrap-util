@@ -37,13 +37,36 @@
     "commands": "./dist/commands",
     "dirname": "symbol-bootstrap-util",
     "plugins": [
-      "@oclif/plugin-help",
-      "@oclif/plugin-plugins"
+      "@oclif/plugin-help"
     ],
     "topicSeparator": " ",
     "topics": {
-      "hello": {
-        "description": "Say hello to the world and others"
+      "conv4142": {
+        "description": "Convert addresses.yml encrypted with version 4.1.x to 4.2.x."
+      },
+      "conv4241": {
+        "description": "Convert addresses.yml encrypted with version 4.2.x to 4.1.x."
+      },
+      "dec41": {
+        "description": "Decrypt addresses.yml in version 4.1.x."
+      },
+      "dec42": {
+        "description": "Decrypt addresses.yml in version 4.2.x."
+      },
+      "enc41": {
+        "description": "Encrypt addresses.yml in version 4.1.x."
+      },
+      "enc42": {
+        "description": "Encrypt addresses.yml in version 4.2.x."
+      },
+      "help": {
+        "description": "Display help for symbol-bootstrap-util."
+      },
+      "passwd41": {
+        "description": "Change password in encrypted addresses.yml in version 4.1.x."
+      },
+      "passwd42": {
+        "description": "Change password in encrypted addresses.yml in version 4.2.x."
       }
     }
   },
