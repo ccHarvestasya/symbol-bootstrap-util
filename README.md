@@ -5,19 +5,17 @@ utilities for symbol-bootstrap
 ## Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g symbol-bootstrap-util
 $ symbol-bootstrap-util COMMAND
 running command...
 $ symbol-bootstrap-util (--version)
-symbol-bootstrap-util/2.0.0 win32-x64 node-v18.19.1
+symbol-bootstrap-util/1.0.1 win32-x64 node-v18.19.1
 $ symbol-bootstrap-util --help [COMMAND]
 USAGE
   $ symbol-bootstrap-util COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 ```sh-session
@@ -35,20 +33,19 @@ USAGE
 ## Commands
 
 <!-- commands -->
-
-- [`symbol-bootstrap-util hello PERSON`](#symbol-bootstrap-util-hello-person)
-- [`symbol-bootstrap-util hello world`](#symbol-bootstrap-util-hello-world)
-- [`symbol-bootstrap-util help [COMMAND]`](#symbol-bootstrap-util-help-command)
-- [`symbol-bootstrap-util plugins`](#symbol-bootstrap-util-plugins)
-- [`symbol-bootstrap-util plugins:install PLUGIN...`](#symbol-bootstrap-util-pluginsinstall-plugin)
-- [`symbol-bootstrap-util plugins:inspect PLUGIN...`](#symbol-bootstrap-util-pluginsinspect-plugin)
-- [`symbol-bootstrap-util plugins:install PLUGIN...`](#symbol-bootstrap-util-pluginsinstall-plugin-1)
-- [`symbol-bootstrap-util plugins:link PLUGIN`](#symbol-bootstrap-util-pluginslink-plugin)
-- [`symbol-bootstrap-util plugins:uninstall PLUGIN...`](#symbol-bootstrap-util-pluginsuninstall-plugin)
-- [`symbol-bootstrap-util plugins reset`](#symbol-bootstrap-util-plugins-reset)
-- [`symbol-bootstrap-util plugins:uninstall PLUGIN...`](#symbol-bootstrap-util-pluginsuninstall-plugin-1)
-- [`symbol-bootstrap-util plugins:uninstall PLUGIN...`](#symbol-bootstrap-util-pluginsuninstall-plugin-2)
-- [`symbol-bootstrap-util plugins update`](#symbol-bootstrap-util-plugins-update)
+* [`symbol-bootstrap-util hello PERSON`](#symbol-bootstrap-util-hello-person)
+* [`symbol-bootstrap-util hello world`](#symbol-bootstrap-util-hello-world)
+* [`symbol-bootstrap-util help [COMMAND]`](#symbol-bootstrap-util-help-command)
+* [`symbol-bootstrap-util plugins`](#symbol-bootstrap-util-plugins)
+* [`symbol-bootstrap-util plugins:install PLUGIN...`](#symbol-bootstrap-util-pluginsinstall-plugin)
+* [`symbol-bootstrap-util plugins:inspect PLUGIN...`](#symbol-bootstrap-util-pluginsinspect-plugin)
+* [`symbol-bootstrap-util plugins:install PLUGIN...`](#symbol-bootstrap-util-pluginsinstall-plugin-1)
+* [`symbol-bootstrap-util plugins:link PLUGIN`](#symbol-bootstrap-util-pluginslink-plugin)
+* [`symbol-bootstrap-util plugins:uninstall PLUGIN...`](#symbol-bootstrap-util-pluginsuninstall-plugin)
+* [`symbol-bootstrap-util plugins reset`](#symbol-bootstrap-util-plugins-reset)
+* [`symbol-bootstrap-util plugins:uninstall PLUGIN...`](#symbol-bootstrap-util-pluginsuninstall-plugin-1)
+* [`symbol-bootstrap-util plugins:uninstall PLUGIN...`](#symbol-bootstrap-util-pluginsuninstall-plugin-2)
+* [`symbol-bootstrap-util plugins update`](#symbol-bootstrap-util-plugins-update)
 
 ## `symbol-bootstrap-util hello PERSON`
 
@@ -72,7 +69,7 @@ EXAMPLES
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v2.0.0/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.1/src/commands/hello/index.ts)_
 
 ## `symbol-bootstrap-util hello world`
 
@@ -90,7 +87,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v2.0.0/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.1/src/commands/hello/world.ts)_
 
 ## `symbol-bootstrap-util help [COMMAND]`
 
@@ -170,7 +167,7 @@ ALIASES
   $ symbol-bootstrap-util plugins add
 
 EXAMPLES
-  $ symbol-bootstrap-util plugins add myplugin
+  $ symbol-bootstrap-util plugins add myplugin 
 
   $ symbol-bootstrap-util plugins add https://github.com/someuser/someplugin
 
@@ -239,7 +236,7 @@ ALIASES
   $ symbol-bootstrap-util plugins add
 
 EXAMPLES
-  $ symbol-bootstrap-util plugins install myplugin
+  $ symbol-bootstrap-util plugins install myplugin 
 
   $ symbol-bootstrap-util plugins install https://github.com/someuser/someplugin
 
@@ -390,5 +387,4 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.3.2/src/commands/plugins/update.ts)_
-
 <!-- commandsstop -->
