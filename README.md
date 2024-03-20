@@ -33,6 +33,7 @@ USAGE
 ## Commands
 
 <!-- commands -->
+* [`symbol-bootstrap-util conv`](#symbol-bootstrap-util-conv)
 * [`symbol-bootstrap-util conv4142`](#symbol-bootstrap-util-conv4142)
 * [`symbol-bootstrap-util conv4241`](#symbol-bootstrap-util-conv4241)
 * [`symbol-bootstrap-util dec41`](#symbol-bootstrap-util-dec41)
@@ -40,8 +41,30 @@ USAGE
 * [`symbol-bootstrap-util enc41`](#symbol-bootstrap-util-enc41)
 * [`symbol-bootstrap-util enc42`](#symbol-bootstrap-util-enc42)
 * [`symbol-bootstrap-util help [COMMAND]`](#symbol-bootstrap-util-help-command)
+* [`symbol-bootstrap-util passwd`](#symbol-bootstrap-util-passwd)
 * [`symbol-bootstrap-util passwd41`](#symbol-bootstrap-util-passwd41)
 * [`symbol-bootstrap-util passwd42`](#symbol-bootstrap-util-passwd42)
+
+## `symbol-bootstrap-util conv`
+
+Convert encrypted version of address.yml between 4.1.x and 4.2.x.
+
+```
+USAGE
+  $ symbol-bootstrap-util conv -i <value> -o <value>
+
+FLAGS
+  -i, --in=<value>   (required) input encrypted addresses.yml
+  -o, --out=<value>  (required) output encrypted addresses.yml
+
+DESCRIPTION
+  Convert encrypted version of address.yml between 4.1.x and 4.2.x.
+
+EXAMPLES
+  $ symbol-bootstrap-util conv -i addresses_bef.yml -o addresses_aft.yml
+```
+
+_See code: [src/commands/conv/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.0/src/commands/conv/index.ts)_
 
 ## `symbol-bootstrap-util conv4142`
 
@@ -188,6 +211,27 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.0.18/src/commands/help.ts)_
+
+## `symbol-bootstrap-util passwd`
+
+Change password in encrypted addresses.yml
+
+```
+USAGE
+  $ symbol-bootstrap-util passwd -i <value> -o <value>
+
+FLAGS
+  -i, --in=<value>   (required) input encrypted addresses.yml
+  -o, --out=<value>  (required) output encrypted addresses.yml
+
+DESCRIPTION
+  Change password in encrypted addresses.yml
+
+EXAMPLES
+  $ symbol-bootstrap-util passwd41 -i addresses_current.yml -o addresses_new.yml
+```
+
+_See code: [src/commands/passwd/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.0/src/commands/passwd/index.ts)_
 
 ## `symbol-bootstrap-util passwd41`
 
