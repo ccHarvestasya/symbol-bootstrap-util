@@ -1,61 +1,7 @@
-import { Crypto411 } from './Crypto411.js';
+import { Crypto } from './Crypto411.js';
 import { AddressesYaml } from './ModelAddressesYaml.js';
 
 export class CryptoAddresses411 {
-  /**
-   * addresses.yaml 復号化
-   * @param {AddressesYaml} yaml addresses.yaml
-   * @param {string} passwd パスワード
-   * @returns void
-   */
-  public static decrypt(yaml: AddressesYaml, passwd: string): void {
-    // main
-    const mainEncryptedPrivateKey = yaml.nodes[0].main?.privateKey?.replace(
-      'ENCRYPTED:',
-      ''
-    );
-    if (mainEncryptedPrivateKey !== undefined) {
-      yaml.nodes[0].main.privateKey = Crypto411.decrypt(
-        mainEncryptedPrivateKey,
-        passwd
-      );
-    }
-
-    // transport
-    const transportEncryptedPrivateKey =
-      yaml.nodes[0].transport?.privateKey?.replace('ENCRYPTED:', '');
-    if (transportEncryptedPrivateKey !== undefined) {
-      yaml.nodes[0].transport.privateKey = Crypto411.decrypt(
-        transportEncryptedPrivateKey,
-        passwd
-      );
-    }
-
-    // remote
-    const remoteEncryptedPrivateKey = yaml.nodes[0].remote?.privateKey?.replace(
-      'ENCRYPTED:',
-      ''
-    );
-    if (remoteEncryptedPrivateKey !== undefined) {
-      yaml.nodes[0].remote.privateKey = Crypto411.decrypt(
-        remoteEncryptedPrivateKey,
-        passwd
-      );
-    }
-
-    // VRF
-    const vrfEncryptedPrivateKey = yaml.nodes[0].vrf?.privateKey?.replace(
-      'ENCRYPTED:',
-      ''
-    );
-    if (vrfEncryptedPrivateKey !== undefined) {
-      yaml.nodes[0].vrf.privateKey = Crypto411.decrypt(
-        vrfEncryptedPrivateKey,
-        passwd
-      );
-    }
-  }
-
   /**
    * addresses.yaml 暗号化
    * @param {AddressesYaml} yaml addresses.yaml
@@ -63,32 +9,99 @@ export class CryptoAddresses411 {
    * @returns void
    */
   public static encrypt(yaml: AddressesYaml, passwd: string): void {
+    const mainPrivateKey = yaml.nodes[0].main?.privateKey ?? '';
+    const tranPrivateKey = yaml.nodes[0].transport?.privateKey ?? '';
+    const remtPrivateKey = yaml.nodes[0].remote?.privateKey ?? '';
+    const vrfPrivateKey = yaml.nodes[0].vrf?.privateKey ?? '';
+
+    // チェック
+    const regex = /^ENCRYPTED:/;
+    const isMainEncrypted = regex.test(mainPrivateKey);
+    const isTrnsEncrypted = regex.test(tranPrivateKey);
+    const isRmotEncrypted = regex.test(remtPrivateKey);
+    const isVrfEncrypted = regex.test(vrfPrivateKey);
+    if (isMainEncrypted || isTrnsEncrypted || isRmotEncrypted || isVrfEncrypted) {
+      // "ENCRYPTED:"がある
+      throw new Error('Encrypted addresses.yml.');
+    }
+
     // main
-    const mainPrivateKey = yaml.nodes[0].main?.privateKey;
-    if (mainPrivateKey !== undefined) {
-      yaml.nodes[0].main.privateKey =
-        'ENCRYPTED:' + Crypto411.encrypt(mainPrivateKey, passwd);
+    if (mainPrivateKey !== undefined && mainPrivateKey !== '') {
+      yaml.nodes[0].main.privateKey = 'ENCRYPTED:' + Crypto.encrypt(mainPrivateKey, passwd);
     }
 
     // transport
-    const transportPrivateKey = yaml.nodes[0].transport?.privateKey;
-    if (transportPrivateKey !== undefined) {
-      yaml.nodes[0].transport.privateKey =
-        'ENCRYPTED:' + Crypto411.encrypt(transportPrivateKey, passwd);
+    if (tranPrivateKey !== undefined && tranPrivateKey !== '') {
+      yaml.nodes[0].transport.privateKey = 'ENCRYPTED:' + Crypto.encrypt(tranPrivateKey, passwd);
     }
 
     // remote
-    const remotePrivateKey = yaml.nodes[0].remote?.privateKey;
-    if (remotePrivateKey !== undefined) {
-      yaml.nodes[0].remote.privateKey =
-        'ENCRYPTED:' + Crypto411.encrypt(remotePrivateKey, passwd);
+    if (remtPrivateKey !== undefined && remtPrivateKey !== '') {
+      yaml.nodes[0].remote.privateKey = 'ENCRYPTED:' + Crypto.encrypt(remtPrivateKey, passwd);
     }
 
     // VRF
-    const vrfPrivateKey = yaml.nodes[0].vrf?.privateKey;
-    if (vrfPrivateKey !== undefined) {
-      yaml.nodes[0].vrf.privateKey =
-        'ENCRYPTED:' + Crypto411.encrypt(vrfPrivateKey, passwd);
+    if (vrfPrivateKey !== undefined && vrfPrivateKey !== '') {
+      yaml.nodes[0].vrf.privateKey = 'ENCRYPTED:' + Crypto.encrypt(vrfPrivateKey, passwd);
     }
+  }
+
+  /**
+   * addresses.yaml 復号化
+   * @param {AddressesYaml} yaml addresses.yaml
+   * @param {string} passwd パスワード
+   * @returns {boolean} 暗号化可能か
+   */
+  public static tryDecrypt(yaml: AddressesYaml, passwd: string): boolean {
+    let mainPrivateKey = yaml.nodes[0].main?.privateKey ?? '';
+    let tranPrivateKey = yaml.nodes[0].transport?.privateKey ?? '';
+    let remtPrivateKey = yaml.nodes[0].remote?.privateKey ?? '';
+    let vrfPrivateKey = yaml.nodes[0].vrf?.privateKey ?? '';
+
+    // チェック
+    const regex = /^ENCRYPTED:/;
+    const isMainEncrypted = regex.test(mainPrivateKey);
+    const isTrnsEncrypted = regex.test(tranPrivateKey);
+    const isRmotEncrypted = regex.test(remtPrivateKey);
+    const isVrfEncrypted = regex.test(vrfPrivateKey);
+    if (!(isMainEncrypted || isTrnsEncrypted || isRmotEncrypted || isVrfEncrypted)) {
+      // "ENCRYPTED:"がない
+      throw new Error('Unencrypted addresses.yml.');
+    }
+
+    // main
+    mainPrivateKey = mainPrivateKey.replace('ENCRYPTED:', '');
+    if (mainPrivateKey !== undefined) {
+      yaml.nodes[0].main.privateKey = Crypto.decrypt(mainPrivateKey, passwd);
+    }
+
+    // transport
+    tranPrivateKey = tranPrivateKey.replace('ENCRYPTED:', '');
+    if (tranPrivateKey !== undefined) {
+      yaml.nodes[0].transport.privateKey = Crypto.decrypt(tranPrivateKey, passwd);
+    }
+
+    // remote
+    remtPrivateKey = remtPrivateKey.replace('ENCRYPTED:', '');
+    if (remtPrivateKey !== undefined) {
+      yaml.nodes[0].remote.privateKey = Crypto.decrypt(remtPrivateKey, passwd);
+    }
+
+    // VRF
+    vrfPrivateKey = vrfPrivateKey.replace('ENCRYPTED:', '');
+    if (vrfPrivateKey !== undefined) {
+      yaml.nodes[0].vrf.privateKey = Crypto.decrypt(vrfPrivateKey, passwd);
+    }
+
+    if (
+      yaml.nodes[0].main.privateKey !== '' ||
+      yaml.nodes[0].transport.privateKey !== '' ||
+      yaml.nodes[0].remote.privateKey !== '' ||
+      yaml.nodes[0].vrf.privateKey !== ''
+    ) {
+      return true;
+    }
+
+    return false;
   }
 }

@@ -9,9 +9,7 @@ import { AddressesYaml } from '../../ModelAddressesYaml.js';
 export default class Enc41 extends Command {
   static description = 'Encrypt addresses.yml in version 4.1.x.';
 
-  static examples = [
-    `$ symbol-bootstrap-util enc41 -i addresses_dec.yml -o addresses_enc.yml`,
-  ];
+  static examples = [`$ symbol-bootstrap-util enc41 -i addresses_dec.yml -o addresses_enc.yml`];
 
   static flags = {
     in: Flags.string({
@@ -27,27 +25,29 @@ export default class Enc41 extends Command {
   };
 
   async run(): Promise<void> {
-    this.log('Encrypt addresses.yml in version 4.1.x.');
+    this.log(Enc41.description);
 
     const { flags } = await this.parse(Enc41);
 
-    // パスワード入力要求
-    const passwd = await password({ mask: true, message: 'enter password' });
-
     try {
       // ファイル読み込みオブジェクト化
-      const data = fs.readFileSync(flags.in, 'utf8');
+      const data = fs.readFileSync(flags.in, { encoding: 'utf8', flag: 'r' });
       const yaml = load(data) as AddressesYaml;
+
+      // パスワード入力要求
+      const passwd = await password({ mask: true, message: 'enter password' });
 
       // 暗号化
       CryptoAddresses411.encrypt(yaml, passwd);
 
       // ファイル出力
-      fs.writeFileSync(flags.out, dump(yaml));
+      fs.writeFileSync(flags.out, dump(yaml), { encoding: 'utf8', flag: 'w' });
       console.log(`Write to ${flags.out}`);
-    } catch {
+    } catch (error) {
       // エラー処理
-      console.log('Failed encryption.');
+      if (error instanceof Error) {
+        console.error(error.message);
+      }
     }
   }
 }
