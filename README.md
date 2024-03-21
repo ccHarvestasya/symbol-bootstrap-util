@@ -5,6 +5,7 @@ utilities for symbol-bootstrap
 ## Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g symbol-bootstrap-util
 $ symbol-bootstrap-util COMMAND
@@ -16,6 +17,7 @@ USAGE
   $ symbol-bootstrap-util COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 ```sh-session
@@ -33,122 +35,59 @@ USAGE
 ## Commands
 
 <!-- commands -->
-* [`symbol-bootstrap-util conv`](#symbol-bootstrap-util-conv)
-* [`symbol-bootstrap-util conv4142`](#symbol-bootstrap-util-conv4142)
-* [`symbol-bootstrap-util conv4241`](#symbol-bootstrap-util-conv4241)
-* [`symbol-bootstrap-util dec41`](#symbol-bootstrap-util-dec41)
-* [`symbol-bootstrap-util dec42`](#symbol-bootstrap-util-dec42)
-* [`symbol-bootstrap-util enc41`](#symbol-bootstrap-util-enc41)
-* [`symbol-bootstrap-util enc42`](#symbol-bootstrap-util-enc42)
-* [`symbol-bootstrap-util help [COMMAND]`](#symbol-bootstrap-util-help-command)
-* [`symbol-bootstrap-util passwd`](#symbol-bootstrap-util-passwd)
-* [`symbol-bootstrap-util passwd41`](#symbol-bootstrap-util-passwd41)
-* [`symbol-bootstrap-util passwd42`](#symbol-bootstrap-util-passwd42)
+
+- [`symbol-bootstrap-util conv`](#symbol-bootstrap-util-conv)
+- [`symbol-bootstrap-util dec`](#symbol-bootstrap-util-dec)
+- [`symbol-bootstrap-util enc41`](#symbol-bootstrap-util-enc41)
+- [`symbol-bootstrap-util enc42`](#symbol-bootstrap-util-enc42)
+- [`symbol-bootstrap-util help [COMMAND]`](#symbol-bootstrap-util-help-command)
+- [`symbol-bootstrap-util passwd`](#symbol-bootstrap-util-passwd)
 
 ## `symbol-bootstrap-util conv`
 
-Convert encrypted version of address.yml between 4.1.x and 4.2.x.
+Convert the encryption version of custom-preset.yml or address.yml.
 
 ```
 USAGE
   $ symbol-bootstrap-util conv -i <value> -o <value>
 
 FLAGS
-  -i, --in=<value>   (required) input encrypted addresses.yml
-  -o, --out=<value>  (required) output encrypted addresses.yml
+  -i, --in=<value>   (required) input the encrypted custom-preset.yml or addresses.yml
+  -o, --out=<value>  (required) output the encrypted custom-preset.yml or addresses.yml
 
 DESCRIPTION
-  Convert encrypted version of address.yml between 4.1.x and 4.2.x.
+  Convert the encryption version of custom-preset.yml or address.yml.
 
 EXAMPLES
-  $ symbol-bootstrap-util conv -i addresses_bef.yml -o addresses_aft.yml
+  $ symbol-bootstrap-util conv -i custom-preset.yml.bak -o custom-preset.yml
+
+  $ symbol-bootstrap-util conv -i target/addresses.yml.bak -o target/addresses.yml
 ```
 
 _See code: [src/commands/conv/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/conv/index.ts)_
 
-## `symbol-bootstrap-util conv4142`
+## `symbol-bootstrap-util dec`
 
-Convert addresses.yml encrypted with version 4.1.x to 4.2.x.
-
-```
-USAGE
-  $ symbol-bootstrap-util conv4142 -i <value> -o <value>
-
-FLAGS
-  -i, --in=<value>   (required) input encrypted with version 4.1.x addresses.yml
-  -o, --out=<value>  (required) output encrypted with version 4.2.x addresses.yml
-
-DESCRIPTION
-  Convert addresses.yml encrypted with version 4.1.x to 4.2.x.
-
-EXAMPLES
-  $ symbol-bootstrap-util conv4142 -i addresses_41.yml -o addresses_42.yml
-```
-
-_See code: [src/commands/conv4142/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/conv4142/index.ts)_
-
-## `symbol-bootstrap-util conv4241`
-
-Convert addresses.yml encrypted with version 4.2.x to 4.1.x.
+Decrypt the encrypted custom-preset.yml or address.yml.
 
 ```
 USAGE
-  $ symbol-bootstrap-util conv4241 -i <value> -o <value>
+  $ symbol-bootstrap-util dec -i <value> -o <value>
 
 FLAGS
-  -i, --in=<value>   (required) input encrypted with version 4.2.x addresses.yml
-  -o, --out=<value>  (required) output encrypted with version 4.1.x addresses.yml
+  -i, --in=<value>   (required) input the encrypted custom-preset.yml or addresses.yml
+  -o, --out=<value>  (required) output the decrypted custom-preset.yml or addresses.yml
 
 DESCRIPTION
-  Convert addresses.yml encrypted with version 4.2.x to 4.1.x.
+  Decrypt the encrypted custom-preset.yml or address.yml.
 
 EXAMPLES
-  $ symbol-bootstrap-util conv4241 -i addresses_42.yml -o addresses_41.yml
+  $ symbol-bootstrap-util dec -i custom-preset.yml -o plan-custom-preset.yml
+
+  $ symbol-bootstrap-util dec -i target/addresses.yml -o plain-addresses.yml
 ```
 
-_See code: [src/commands/conv4241/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/conv4241/index.ts)_
-
-## `symbol-bootstrap-util dec41`
-
-Decrypt addresses.yml in version 4.1.x.
-
-```
-USAGE
-  $ symbol-bootstrap-util dec41 -i <value> -o <value>
-
-FLAGS
-  -i, --in=<value>   (required) input encrypted addresses.yml
-  -o, --out=<value>  (required) output decryption addresses.yml
-
-DESCRIPTION
-  Decrypt addresses.yml in version 4.1.x.
-
-EXAMPLES
-  $ symbol-bootstrap-util dec41 -i addresses_enc.yml -o addresses_dec.yml
-```
-
-_See code: [src/commands/dec41/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/dec41/index.ts)_
-
-## `symbol-bootstrap-util dec42`
-
-Decrypt addresses.yml in version 4.2.x.
-
-```
-USAGE
-  $ symbol-bootstrap-util dec42 -i <value> -o <value>
-
-FLAGS
-  -i, --in=<value>   (required) input encrypted addresses.yml
-  -o, --out=<value>  (required) output decryption addresses.yml
-
-DESCRIPTION
-  Decrypt addresses.yml in version 4.2.x.
-
-EXAMPLES
-  $ symbol-bootstrap-util dec42 -i addresses_enc.yml -o addresses_dec.yml
-```
-
-_See code: [src/commands/dec42/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/dec42/index.ts)_
+_See code: [src/commands/dec/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/dec/index.ts)_
 
 ## `symbol-bootstrap-util enc41`
 
@@ -214,64 +153,25 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.0.1
 
 ## `symbol-bootstrap-util passwd`
 
-Change password in encrypted addresses.yml
+Change password in encrypted custom-preset.yml or addresses.yml
 
 ```
 USAGE
   $ symbol-bootstrap-util passwd -i <value> -o <value>
 
 FLAGS
-  -i, --in=<value>   (required) input encrypted addresses.yml
-  -o, --out=<value>  (required) output encrypted addresses.yml
+  -i, --in=<value>   (required) input the encrypted custom-preset.yml or addresses.yml
+  -o, --out=<value>  (required) output the encrypted custom-preset.yml or addresses.yml
 
 DESCRIPTION
-  Change password in encrypted addresses.yml
+  Change password in encrypted custom-preset.yml or addresses.yml
 
 EXAMPLES
-  $ symbol-bootstrap-util passwd41 -i addresses_current.yml -o addresses_new.yml
+  $ symbol-bootstrap-util passwd -i custom-preset.yml.bak -o custom-preset.yml
+
+  $ symbol-bootstrap-util passwd -i target/addresses.yml.bak -o target/addresses.yml
 ```
 
 _See code: [src/commands/passwd/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/passwd/index.ts)_
 
-## `symbol-bootstrap-util passwd41`
-
-Change password in encrypted addresses.yml in version 4.1.x.
-
-```
-USAGE
-  $ symbol-bootstrap-util passwd41 -i <value> -o <value>
-
-FLAGS
-  -i, --in=<value>   (required) input encrypted with version 4.1.x addresses.yml
-  -o, --out=<value>  (required) output encrypted with version 4.1.x addresses.yml
-
-DESCRIPTION
-  Change password in encrypted addresses.yml in version 4.1.x.
-
-EXAMPLES
-  $ symbol-bootstrap-util passwd41 -i addresses_current.yml -o addresses_new.yml
-```
-
-_See code: [src/commands/passwd41/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/passwd41/index.ts)_
-
-## `symbol-bootstrap-util passwd42`
-
-Change password in encrypted addresses.yml in version 4.2.x.
-
-```
-USAGE
-  $ symbol-bootstrap-util passwd42 -i <value> -o <value>
-
-FLAGS
-  -i, --in=<value>   (required) input encrypted with version 4.2.x addresses.yml
-  -o, --out=<value>  (required) output encrypted with version 4.2.x addresses.yml
-
-DESCRIPTION
-  Change password in encrypted addresses.yml in version 4.2.x.
-
-EXAMPLES
-  $ symbol-bootstrap-util passwd42 -i addresses_current.yml -o addresses_new.yml
-```
-
-_See code: [src/commands/passwd42/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/passwd42/index.ts)_
 <!-- commandsstop -->
