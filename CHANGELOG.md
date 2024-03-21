@@ -1,12 +1,18 @@
 # Change Log
 
+## [1.0.2](https://github.com/ccHarvestasya/symbol-bootstrap-util/compare/1.0.1...1.0.2) (2024-03-20)
+
+### 追加
+
+- patch-package パッケージ追加
+
 ## [1.0.1](https://github.com/ccHarvestasya/symbol-bootstrap-util/compare/master...1.0.1) (2024-03-20)
 
-## 追加
+### 追加
 
 - バージョン判定を自動化した変換とパスワード変更のコマンド追加
 
-## 変更
+### 変更
 
 - パスワード問合せタイミング変更
 
