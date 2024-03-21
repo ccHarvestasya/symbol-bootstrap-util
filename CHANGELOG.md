@@ -1,6 +1,6 @@
 # Change Log
 
-## [1.1.0](https://github.com/ccHarvestasya/symbol-bootstrap-util/compare/1.0.3...1.1.0) (2024-03-21)
+## [1.1.0](https://github.com/ccHarvestasya/symbol-bootstrap-util/compare/v1.0.3...v1.1.0) (2024-03-21)
 
 ### 変更
 
@@ -9,19 +9,19 @@
 
 # Change Log
 
-## [1.0.3](https://github.com/ccHarvestasya/symbol-bootstrap-util/compare/1.0.2...1.0.3) (2024-03-21)
+## [1.0.3](https://github.com/ccHarvestasya/symbol-bootstrap-util/compare/v1.0.2...v1.0.3) (2024-03-21)
 
 ### 変更
 
 - crypto-js バージョン固定化
 
-## [1.0.2](https://github.com/ccHarvestasya/symbol-bootstrap-util/compare/1.0.1...1.0.2) (2024-03-21)
+## [1.0.2](https://github.com/ccHarvestasya/symbol-bootstrap-util/compare/v1.0.1...v1.0.2) (2024-03-21)
 
 ### 追加
 
 - patch-package パッケージ追加
 
-## [1.0.1](https://github.com/ccHarvestasya/symbol-bootstrap-util/compare/master...1.0.1) (2024-03-20)
+## [1.0.1](https://github.com/ccHarvestasya/symbol-bootstrap-util/compare/v1.0.0...v1.0.1) (2024-03-20)
 
 ### 追加
 
@@ -31,6 +31,6 @@
 
 - パスワード問合せタイミング変更
 
-## [1.0.0](https://github.com/ccHarvestasya/symbol-bootstrap-util/compare/master...1.0.0) (2024-03-19)
+## [1.0.0](https://github.com/ccHarvestasya/symbol-bootstrap-util/compare/master...v1.0.0) (2024-03-19)
 
 - first version
