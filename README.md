@@ -10,7 +10,7 @@ $ npm install -g symbol-bootstrap-util
 $ symbol-bootstrap-util COMMAND
 running command...
 $ symbol-bootstrap-util (--version)
-symbol-bootstrap-util/1.0.2 win32-x64 node-v18.19.1
+symbol-bootstrap-util/1.0.3 win32-x64 node-v18.19.1
 $ symbol-bootstrap-util --help [COMMAND]
 USAGE
   $ symbol-bootstrap-util COMMAND
@@ -64,7 +64,7 @@ EXAMPLES
   $ symbol-bootstrap-util conv -i addresses_bef.yml -o addresses_aft.yml
 ```
 
-_See code: [src/commands/conv/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.2/src/commands/conv/index.ts)_
+_See code: [src/commands/conv/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/conv/index.ts)_
 
 ## `symbol-bootstrap-util conv4142`
 
@@ -85,7 +85,7 @@ EXAMPLES
   $ symbol-bootstrap-util conv4142 -i addresses_41.yml -o addresses_42.yml
 ```
 
-_See code: [src/commands/conv4142/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.2/src/commands/conv4142/index.ts)_
+_See code: [src/commands/conv4142/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/conv4142/index.ts)_
 
 ## `symbol-bootstrap-util conv4241`
 
@@ -106,7 +106,7 @@ EXAMPLES
   $ symbol-bootstrap-util conv4241 -i addresses_42.yml -o addresses_41.yml
 ```
 
-_See code: [src/commands/conv4241/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.2/src/commands/conv4241/index.ts)_
+_See code: [src/commands/conv4241/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/conv4241/index.ts)_
 
 ## `symbol-bootstrap-util dec41`
 
@@ -127,7 +127,7 @@ EXAMPLES
   $ symbol-bootstrap-util dec41 -i addresses_enc.yml -o addresses_dec.yml
 ```
 
-_See code: [src/commands/dec41/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.2/src/commands/dec41/index.ts)_
+_See code: [src/commands/dec41/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/dec41/index.ts)_
 
 ## `symbol-bootstrap-util dec42`
 
@@ -148,7 +148,7 @@ EXAMPLES
   $ symbol-bootstrap-util dec42 -i addresses_enc.yml -o addresses_dec.yml
 ```
 
-_See code: [src/commands/dec42/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.2/src/commands/dec42/index.ts)_
+_See code: [src/commands/dec42/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/dec42/index.ts)_
 
 ## `symbol-bootstrap-util enc41`
 
@@ -169,7 +169,7 @@ EXAMPLES
   $ symbol-bootstrap-util enc41 -i addresses_dec.yml -o addresses_enc.yml
 ```
 
-_See code: [src/commands/enc41/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.2/src/commands/enc41/index.ts)_
+_See code: [src/commands/enc41/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/enc41/index.ts)_
 
 ## `symbol-bootstrap-util enc42`
 
@@ -190,7 +190,7 @@ EXAMPLES
   $ symbol-bootstrap-util enc42 -i addresses_dec.yml -o addresses_enc.yml
 ```
 
-_See code: [src/commands/enc42/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.2/src/commands/enc42/index.ts)_
+_See code: [src/commands/enc42/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/enc42/index.ts)_
 
 ## `symbol-bootstrap-util help [COMMAND]`
 
@@ -231,7 +231,7 @@ EXAMPLES
   $ symbol-bootstrap-util passwd41 -i addresses_current.yml -o addresses_new.yml
 ```
 
-_See code: [src/commands/passwd/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.2/src/commands/passwd/index.ts)_
+_See code: [src/commands/passwd/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/passwd/index.ts)_
 
 ## `symbol-bootstrap-util passwd41`
 
@@ -252,7 +252,7 @@ EXAMPLES
   $ symbol-bootstrap-util passwd41 -i addresses_current.yml -o addresses_new.yml
 ```
 
-_See code: [src/commands/passwd41/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.2/src/commands/passwd41/index.ts)_
+_See code: [src/commands/passwd41/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/passwd41/index.ts)_
 
 ## `symbol-bootstrap-util passwd42`
 
@@ -273,5 +273,5 @@ EXAMPLES
   $ symbol-bootstrap-util passwd42 -i addresses_current.yml -o addresses_new.yml
 ```
 
-_See code: [src/commands/passwd42/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.2/src/commands/passwd42/index.ts)_
+_See code: [src/commands/passwd42/index.ts](https://github.com/ccHarvestasya/symbol-bootstrap-util/blob/v1.0.3/src/commands/passwd42/index.ts)_
 <!-- commandsstop -->
