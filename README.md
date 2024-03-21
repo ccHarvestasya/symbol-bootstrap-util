@@ -20,18 +20,6 @@ USAGE
 
 <!-- usagestop -->
 
-```sh-session
-$ npm install -g symbol-bootstrap-util
-$ symbol-bootstrap-util COMMAND
-running command...
-$ symbol-bootstrap-util (--version)
-symbol-bootstrap-util/1.0.0 win32-x64 node-v18.19.1
-$ symbol-bootstrap-util --help [COMMAND]
-USAGE
-  $ symbol-bootstrap-util COMMAND
-...
-```
-
 ## Commands
 
 <!-- commands -->
