@@ -3,13 +3,16 @@ import { Command, Flags } from '@oclif/core';
 import { dump, load } from 'js-yaml';
 import fs from 'node:fs';
 
-import { CryptoAddresses420 } from '../../CryptoAddresses420.js';
+import { CryptoAddresses } from '../../CryptoAddresses420.js';
+import { CryptoCustomPreset } from '../../CryptoCustomPreset420.js';
 import { AddressesYaml } from '../../ModelAddressesYaml.js';
+import { CustomPresetYaml } from '../../ModelCustomPresetYaml.js';
+import { YamlUtil } from '../../YamlUtil.js';
 
-export default class Enc42 extends Command {
+export default class Enc41 extends Command {
   static description = 'Encrypt addresses.yml in version 4.2.x.';
 
-  static examples = [`$ symbol-bootstrap-util enc42 -i addresses_dec.yml -o addresses_enc.yml`];
+  static examples = [`$ symbol-bootstrap-util enc41 -i addresses_dec.yml -o addresses_enc.yml`];
 
   static flags = {
     in: Flags.string({
@@ -25,20 +28,35 @@ export default class Enc42 extends Command {
   };
 
   async run(): Promise<void> {
-    this.log(Enc42.description);
+    this.log(Enc41.description);
 
-    const { flags } = await this.parse(Enc42);
+    const { flags } = await this.parse(Enc41);
 
     try {
       // ファイル読み込みオブジェクト化
       const data = fs.readFileSync(flags.in, { encoding: 'utf8', flag: 'r' });
-      const yaml = load(data) as AddressesYaml;
 
       // パスワード入力要求
       const passwd = await password({ mask: true, message: 'enter password' });
 
-      // 暗号化
-      CryptoAddresses420.encrypt(yaml, passwd);
+      // ファイル判定
+      let yaml: AddressesYaml | CustomPresetYaml;
+      if (YamlUtil.isAddresses(data)) {
+        // addresses.yml
+        console.log('Encrypt addresses.yml: v4.2.x');
+        // 4.2暗号化
+        const addressesYaml = load(data) as AddressesYaml;
+        CryptoAddresses.encrypt(addressesYaml, passwd);
+        yaml = addressesYaml;
+      } else {
+        // custom-preset.yml
+        console.log('Encrypt custom-preset.yml: v4.2.x');
+        // 4.2暗号化
+        const customPresetYaml = load(data) as CustomPresetYaml;
+        CryptoCustomPreset.encrypt(customPresetYaml, passwd);
+
+        yaml = customPresetYaml;
+      }
 
       // ファイル出力
       fs.writeFileSync(flags.out, dump(yaml), { encoding: 'utf8', flag: 'w' });

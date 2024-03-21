@@ -1,7 +1,7 @@
 import { Crypto } from './Crypto420.js';
 import { AddressesYaml } from './ModelAddressesYaml.js';
 
-export class CryptoAddresses420 {
+export class CryptoAddresses {
   /**
    * addresses.yaml 暗号化
    * @param {AddressesYaml} yaml addresses.yaml
@@ -26,22 +26,22 @@ export class CryptoAddresses420 {
     }
 
     // main
-    if (mainPrivateKey !== undefined && mainPrivateKey !== '') {
+    if (CryptoAddresses.isEnabledItem(mainPrivateKey)) {
       yaml.nodes[0].main.privateKey = 'ENCRYPTED:' + Crypto.encrypt(mainPrivateKey, passwd);
     }
 
     // transport
-    if (tranPrivateKey !== undefined && tranPrivateKey !== '') {
+    if (CryptoAddresses.isEnabledItem(tranPrivateKey)) {
       yaml.nodes[0].transport.privateKey = 'ENCRYPTED:' + Crypto.encrypt(tranPrivateKey, passwd);
     }
 
     // remote
-    if (remtPrivateKey !== undefined && remtPrivateKey !== '') {
+    if (CryptoAddresses.isEnabledItem(remtPrivateKey)) {
       yaml.nodes[0].remote.privateKey = 'ENCRYPTED:' + Crypto.encrypt(remtPrivateKey, passwd);
     }
 
     // VRF
-    if (vrfPrivateKey !== undefined && vrfPrivateKey !== '') {
+    if (CryptoAddresses.isEnabledItem(vrfPrivateKey)) {
       yaml.nodes[0].vrf.privateKey = 'ENCRYPTED:' + Crypto.encrypt(vrfPrivateKey, passwd);
     }
   }
@@ -69,39 +69,52 @@ export class CryptoAddresses420 {
       throw new Error('Unencrypted addresses.yml.');
     }
 
-    // main
-    mainPrivateKey = mainPrivateKey.replace('ENCRYPTED:', '');
-    if (mainPrivateKey !== undefined) {
-      yaml.nodes[0].main.privateKey = Crypto.decrypt(mainPrivateKey, passwd);
-    }
+    try {
+      // main
+      mainPrivateKey = mainPrivateKey.replace('ENCRYPTED:', '');
+      if (CryptoAddresses.isEnabledItem(mainPrivateKey)) {
+        yaml.nodes[0].main.privateKey = Crypto.decrypt(mainPrivateKey, passwd);
+      }
 
-    // transport
-    tranPrivateKey = tranPrivateKey.replace('ENCRYPTED:', '');
-    if (tranPrivateKey !== undefined) {
-      yaml.nodes[0].transport.privateKey = Crypto.decrypt(tranPrivateKey, passwd);
-    }
+      // transport
+      tranPrivateKey = tranPrivateKey.replace('ENCRYPTED:', '');
+      if (CryptoAddresses.isEnabledItem(tranPrivateKey)) {
+        yaml.nodes[0].transport.privateKey = Crypto.decrypt(tranPrivateKey, passwd);
+      }
 
-    // remote
-    remtPrivateKey = remtPrivateKey.replace('ENCRYPTED:', '');
-    if (remtPrivateKey !== undefined) {
-      yaml.nodes[0].remote.privateKey = Crypto.decrypt(remtPrivateKey, passwd);
-    }
+      // remote
+      remtPrivateKey = remtPrivateKey.replace('ENCRYPTED:', '');
+      if (CryptoAddresses.isEnabledItem(remtPrivateKey)) {
+        yaml.nodes[0].remote.privateKey = Crypto.decrypt(remtPrivateKey, passwd);
+      }
 
-    // VRF
-    vrfPrivateKey = vrfPrivateKey.replace('ENCRYPTED:', '');
-    if (vrfPrivateKey !== undefined) {
-      yaml.nodes[0].vrf.privateKey = Crypto.decrypt(vrfPrivateKey, passwd);
+      // VRF
+      vrfPrivateKey = vrfPrivateKey.replace('ENCRYPTED:', '');
+      if (CryptoAddresses.isEnabledItem(vrfPrivateKey)) {
+        yaml.nodes[0].vrf.privateKey = Crypto.decrypt(vrfPrivateKey, passwd);
+      }
+    } catch {
+      return false;
     }
 
     if (
-      yaml.nodes[0].main.privateKey !== '' ||
-      yaml.nodes[0].transport.privateKey !== '' ||
-      yaml.nodes[0].remote.privateKey !== '' ||
-      yaml.nodes[0].vrf.privateKey !== ''
+      CryptoAddresses.isEnabledItem(yaml.nodes[0].main.privateKey) ||
+      CryptoAddresses.isEnabledItem(yaml.nodes[0].transport.privateKey) ||
+      CryptoAddresses.isEnabledItem(yaml.nodes[0].remote.privateKey) ||
+      CryptoAddresses.isEnabledItem(yaml.nodes[0].vrf.privateKey)
     ) {
       return true;
     }
 
     return false;
+  }
+
+  /**
+   * 無効項目判定
+   * @param item {string} 項目
+   * @returns true: 無効
+   */
+  private static isEnabledItem(item: null | string | undefined) {
+    return item !== null && item !== undefined && item !== '';
   }
 }

@@ -3,8 +3,11 @@ import { Command, Flags } from '@oclif/core';
 import { dump, load } from 'js-yaml';
 import fs from 'node:fs';
 
-import { CryptoAddresses411 } from '../../CryptoAddresses411.js';
+import { CryptoAddresses } from '../../CryptoAddresses411.js';
+import { CryptoCustomPreset } from '../../CryptoCustomPreset411.js';
 import { AddressesYaml } from '../../ModelAddressesYaml.js';
+import { CustomPresetYaml } from '../../ModelCustomPresetYaml.js';
+import { YamlUtil } from '../../YamlUtil.js';
 
 export default class Enc41 extends Command {
   static description = 'Encrypt addresses.yml in version 4.1.x.';
@@ -32,13 +35,28 @@ export default class Enc41 extends Command {
     try {
       // ファイル読み込みオブジェクト化
       const data = fs.readFileSync(flags.in, { encoding: 'utf8', flag: 'r' });
-      const yaml = load(data) as AddressesYaml;
 
       // パスワード入力要求
       const passwd = await password({ mask: true, message: 'enter password' });
 
-      // 暗号化
-      CryptoAddresses411.encrypt(yaml, passwd);
+      // ファイル判定
+      let yaml: AddressesYaml | CustomPresetYaml;
+      if (YamlUtil.isAddresses(data)) {
+        // addresses.yml
+        console.log('Encrypt addresses.yml: v4.1.x');
+        // 4.1暗号化
+        const addressesYaml = load(data) as AddressesYaml;
+        CryptoAddresses.encrypt(addressesYaml, passwd);
+        yaml = addressesYaml;
+      } else {
+        // custom-preset.yml
+        console.log('Encrypt custom-preset.yml: v4.1.x');
+        // 4.1暗号化
+        const customPresetYaml = load(data) as CustomPresetYaml;
+        CryptoCustomPreset.encrypt(customPresetYaml, passwd);
+
+        yaml = customPresetYaml;
+      }
 
       // ファイル出力
       fs.writeFileSync(flags.out, dump(yaml), { encoding: 'utf8', flag: 'w' });
