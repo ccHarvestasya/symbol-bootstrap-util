@@ -1,6 +1,6 @@
 # Change Log
 
-## [1.0.4](https://github.com/ccHarvestasya/symbol-bootstrap-util/compare/1.0.3...1.0.4) (2024-03-21)
+## [1.1.0](https://github.com/ccHarvestasya/symbol-bootstrap-util/compare/1.0.3...1.1.0) (2024-03-21)
 
 ### 変更
 
