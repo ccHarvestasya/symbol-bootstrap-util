@@ -1,6 +1,15 @@
 # Change Log
 
-## [1.0.3](https://github.com/ccHarvestasya/symbol-bootstrap-util/compare/1.0.1...1.0.2) (2024-03-21)
+## [1.0.4](https://github.com/ccHarvestasya/symbol-bootstrap-util/compare/1.0.3...1.0.4) (2024-03-21)
+
+### 変更
+
+- 復号、変換、パスワード変更のバージョン指定廃止
+- custom-preset.yml 対応
+
+# Change Log
+
+## [1.0.3](https://github.com/ccHarvestasya/symbol-bootstrap-util/compare/1.0.2...1.0.3) (2024-03-21)
 
 ### 変更
 
